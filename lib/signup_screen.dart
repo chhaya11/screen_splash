@@ -70,6 +70,9 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black
+                  ),
                   child: Text(
                     "Sign up",
                     style: TextStyle(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splash_screen/forget_password.dart';
+import 'package:splash_screen/reset_pasword.dart';
 import 'package:splash_screen/splash_screen.dart';
 
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: 'splash',
-      routes:{'splash': (context) => ForgetPassword()},
+      routes:{'splash': (context) => ResetPassword()},
     );
   }
 }

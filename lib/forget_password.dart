@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -18,6 +16,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
              Container(
                   child: Image.asset("asset/images/login.png"),
@@ -25,12 +24,38 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 Text("FORGET PASSWORD" ,style: TextStyle(
                   fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
-                Text("hey"),
-                Text("Enter the email address associated with your account",
-                style: TextStyle(
-                  fontSize: 14.0, fontWeight: FontWeight.normal),
-                ),
-          ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0 ,horizontal: 45.0),
+                  child: Text("Enter the email address associated with your account", textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14.0, fontWeight: FontWeight.normal),
+                  ),
+                  ),
+                  Padding(
+                   padding: EdgeInsets.all(10),
+                   child: TextField(
+                     decoration: InputDecoration(
+                       labelText: "Email" ,hintText: "Enter Your Email"
+                     ),
+                   ),
+                  ),
+                  SizedBox(
+                    height: 25.0,
+                  ),
+                  ElevatedButton(onPressed: 
+                  (){},style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius:BorderRadius.circular(25)
+                    )                  
+                  ),
+                   child: Padding(
+                     padding: const EdgeInsets.symmetric(vertical: 15.0 , horizontal: 20.0),
+                     child: Text(
+                      "SEND" ,style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                   ))
+                  ]
         ),
       ),
       ),      
