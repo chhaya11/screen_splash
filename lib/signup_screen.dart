@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_screen/login_screen.dart';
 
 class Signup_Screen extends StatefulWidget {
   const Signup_Screen({Key? key}) : super(key: key);
@@ -61,27 +62,7 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                   ),
                 ),
               ),
-              Container(
-                height: 50.0,
-                width: 150.0,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.black
-                  ),
-                  child: Text(
-                    "Sign up",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-              Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Checkbox(
@@ -101,18 +82,45 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                   )
                 ],
               ),
-               SizedBox(
+              SizedBox(height: 5),
+              Container(
+                height: 50.0,
+                width: 150.0,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                  },
+                  style: ElevatedButton.styleFrom(primary: Colors.black),
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
                 height: 60,
               ),
-                Row(
-              children: [
-                Text('Already have an account?'),
-                TextButton(onPressed: (){
-
-                }, child: Text('login'))
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            )
+              Row(
+                children: [
+                  Text('Already have an account?'),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()));
+                      },
+                      child: Text('login'))
+                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+              )
             ],
           ),
         ),
