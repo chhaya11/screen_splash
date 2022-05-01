@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:splash_screen/forget_password.dart';
+import 'package:splash_screen/home.dart';
 import 'package:splash_screen/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -45,6 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                         labelText: 'Password', hintText: 'Enter your password'),
                   ),
+                  
                 ),
                 TextButton(
                   onPressed: () {
@@ -79,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => LoginScreen())));
+                              builder: ((context) => HomeScreen())));
                     },
                     style: ElevatedButton.styleFrom(primary: Colors.black,
                     shape: RoundedRectangleBorder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_screen/otp_screen.dart';
 import 'package:splash_screen/reset_password_successful.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -51,7 +52,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ResetPassSuccess()));
+                              builder: (context) => OtpScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.black,
@@ -64,7 +65,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         "SEND",
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
-                    ))
+                    )
+                    )
               ]),
         ),
       ),
