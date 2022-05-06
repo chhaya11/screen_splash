@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: 'splash',
-      routes: {'splash': (context) => Scan_Screen()},
+      routes: {'splash': (context) => HomeScreen()},
     );
   }
 }
