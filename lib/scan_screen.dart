@@ -155,96 +155,100 @@ class _Scan_ScreenState extends State<Scan_Screen> {
     showDialog(
         context: context,        
         builder: (context) {
-          return Container(
-            height: 200,
-            child: Stack(             
-              children:[
-                Positioned.fill(
-                child: AlertDialog(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0)),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [                      
-                      Text(
-                        'Product Details',
-                        style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Image.asset('asset/images/qr-code-detail.png'),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      Text('ID - ${barcodeAssign}',
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.w600),
-                          textAlign: TextAlign.center),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(
-                        'product : pamper',
-                        style: TextStyle(color: Colors.grey, fontSize: 12.0),
-                      ),
-                      SizedBox(
-                        height: 30.0,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Company Name",
-                            style: TextStyle(color: Colors.grey, fontSize: 13.0),
-                          ),
-                          Text(
-                            "CheckMyProduct",
-                            style: TextStyle(color: Colors.black, fontSize: 14.0),
-                          )
-                        ],
-                      ),
-                      Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Quantity",
-                            style: TextStyle(color: Colors.grey, fontSize: 13.0),
-                          ),
-                          Text(
-                            "6 Pec",
-                            style: TextStyle(color: Colors.black, fontSize: 14.0),
-                          )
-                        ],
-                      ),                
-                      Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Price",
-                            style: TextStyle(color: Colors.grey, fontSize: 13.0),
-                          ),
-                          Text(
-                            "2.65",
-                            style: TextStyle(color: Colors.black, fontSize: 14.0),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
+          return AlertDialog(
+            contentPadding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            content: Stack(
+              clipBehavior: Clip.none,
+              children:[ Padding(
+                padding: const EdgeInsets.fromLTRB(24,24,24,24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [                      
+                    Text(
+                      'Product Details',
+                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Image.asset('asset/images/qr-code-detail.png'),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Text('ID - ${barcodeAssign}',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      'product : pamper',
+                      style: TextStyle(color: Colors.grey, fontSize: 12.0),
+                    ),
+                    SizedBox(
+                      height: 30.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Company Name",
+                          style: TextStyle(color: Colors.grey, fontSize: 13.0),
+                        ),
+                        Text(
+                          "CheckMyProduct",
+                          style: TextStyle(color: Colors.black, fontSize: 14.0),
+                        )
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Quantity",
+                          style: TextStyle(color: Colors.grey, fontSize: 13.0),
+                        ),
+                        Text(
+                          "6 Pec",
+                          style: TextStyle(color: Colors.black, fontSize: 14.0),
+                        )
+                      ],
+                    ),                
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Price",
+                          style: TextStyle(color: Colors.grey, fontSize: 13.0),
+                        ),
+                        Text(
+                          "2.65",
+                          style: TextStyle(color: Colors.black, fontSize: 14.0),
+                        )
+                      ],
+                    )
+                  ],
                 ),
               ),
-            Positioned(
-              right: 0,
-              child: Container(
-                child:Image.asset('asset/images/cross.png'),
-              ),
-            ),
+         Positioned(
+            right: -5,             
+            top: -5,
+              child: GestureDetector(
+              onTap: (){
+                  Navigator.of(context).pop();
+              },              
+            child: Image.asset('asset/images/cross-outline.png')
+          ),
+          ),
+              
               ]
             ),
           );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_screen/history.dart';
 import 'package:splash_screen/scan_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Scan_Screen()));
+                              builder: (context) => History()));
                     },
                     child: Card(
                       child: Column(
