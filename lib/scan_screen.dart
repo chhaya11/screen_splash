@@ -230,7 +230,7 @@ class _Scan_ScreenState extends State<Scan_Screen> {
                           style: TextStyle(color: Colors.grey, fontSize: 13.0),
                         ),
                         Text(
-                          "2.65",
+                          "\$2.65",
                           style: TextStyle(color: Colors.black, fontSize: 14.0),
                         )
                       ],
