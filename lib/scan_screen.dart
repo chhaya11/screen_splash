@@ -133,9 +133,12 @@ class _Scan_ScreenState extends State<Scan_Screen> {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Text(
-                        'You can now view the same in history',
-                        style: TextStyle(color: Colors.grey, fontSize: 12.0),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 15, 0),
+                        child: Text(
+                          'You can now view the same in history',
+                          style: TextStyle(color: Colors.grey, fontSize: 12.0),
+                        ),
                       ),
                     ],
                   ),

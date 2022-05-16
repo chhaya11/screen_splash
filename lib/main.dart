@@ -6,6 +6,7 @@ import 'package:splash_screen/otp_screen.dart';
 import 'package:splash_screen/reset_password_successful.dart';
 import 'package:splash_screen/reset_pasword.dart';
 import 'package:splash_screen/scan_screen.dart';
+import 'package:splash_screen/signup_screen.dart';
 import 'package:splash_screen/splash_screen.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: 'splash',
-      routes: {'splash': (context) => HomeScreen()},
+      routes: {'splash': (context) => Signup_Screen()},
     );
   }
 }

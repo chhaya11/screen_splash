@@ -23,36 +23,74 @@ class _SettingScreenState extends State<SettingScreen> {
           padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                child: Image.asset('asset/images/login.png'),
+              Center(
+                child: Container(
+                  child: Image.asset('asset/images/login.png'),
+                ),
               ),
               SizedBox(
                 height: 10.0,
               ),
               //Email
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('data'),
-                  Expanded(
+                  Text('Email' ,style: TextStyle(
+                    color: Colors.grey
+                  ),),
+                  SizedBox(width: 60,),
+                  Flexible(
                     child: TextField(
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.emailAddress,  
                       decoration: InputDecoration(
-                        labelText: 'Email',
+                        contentPadding:EdgeInsets.all(0),
+                        border: InputBorder.none,                       
                         hintText: 'jilian.marocs@gmail.com',
+                        hintStyle: TextStyle(
+                          fontSize: 14.0
+                         ),
+                        suffixIcon: Icon(Icons.edit ,size: 18.0, 
+                        color: Colors.grey),
+                        suffixIconConstraints: BoxConstraints(),
+                      
                       ),
                     ),
                   ),
                 ],
               ),
+              Divider(),
 
               //Password
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                    labelText: 'Change Password',
-                    hintText: 'Enter Your Password'),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Change Password' ,style: TextStyle(
+                    color: Colors.grey
+                  ),),
+                   SizedBox(width: 30,),
+                  Expanded(
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                         contentPadding:EdgeInsets.all(0),
+                        border: InputBorder.none,
+                         hintStyle: TextStyle(
+                          fontSize: 14.0
+                         ),
+                          hintText: 'Enter Your Password',
+                          suffixIcon: Icon(Icons.edit ,size: 18.0,
+                           color: Colors.grey),
+                        suffixIconConstraints: BoxConstraints(),),
+                          
+                    ),
+                  ),
+                ],
               ),
+              Divider(),
               SizedBox(
                 height: 20.0,
               ),
@@ -61,20 +99,59 @@ class _SettingScreenState extends State<SettingScreen> {
                 style: TextStyle(fontWeight: FontWeight.w600),
                 textAlign: TextAlign.left,
               ),
-
+                SizedBox(
+                height: 20.0,
+              ),
               //Name
-              TextField(
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                    labelText: 'Full Name', hintText: 'Julian Macros'),
+              Row(
+                 crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Full Name" ,style: TextStyle(
+                    color: Colors.grey
+                  ),),
+                  SizedBox(width: 80,),
+                  Flexible(
+                    child: TextField(
+                      keyboardType: TextInputType.name,                      
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(0),
+                        border: InputBorder.none,
+                          hintText: 'Julian Macros',
+                          hintStyle: TextStyle(
+                          fontSize: 14.0
+                         ),
+                          suffixIcon: Icon(Icons.edit ,size: 18.0, color: Colors.grey),
+                        suffixIconConstraints: BoxConstraints(),),
+                    ),
+                  ),
+                ],
               ),
+              Divider(),
               //Phone number
-              TextField(
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  labelText: 'Phone Number',
-                ),
+              Row(
+                children: [
+                  Text("Phone Number" ,style: TextStyle(
+                    color: Colors.grey
+                  ),),
+                  SizedBox(width: 50,),
+                  Flexible(
+                    child: TextField(
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(0),
+                        border: InputBorder.none,
+                        hintText: 'Phone Number',
+                        hintStyle: TextStyle(
+                          fontSize: 14.0
+                         ),
+                        suffixIcon: Icon(Icons.edit ,color: Colors.grey ,size: 18.0),
+                      suffixIconConstraints: BoxConstraints(),),
+                    ),
+                  ),
+                ],
               ),
+              Divider(),
               SizedBox(
                 height: 20.0,
               ),
@@ -83,47 +160,57 @@ class _SettingScreenState extends State<SettingScreen> {
                 style: TextStyle(fontWeight: FontWeight.w600),
                 textAlign: TextAlign.left,
               ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Delete My Account'),
-                  Container(
-                    child: Image.asset('asset/images/delete.png'),
-                  )
-                ],
+              SizedBox(
+                height: 20.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Delete My Account'),
+                    Container(
+                      child: Image.asset('asset/images/delete.png'),
+                    )
+                  ],
+                ),
               ),
               Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Clear History'),
-                  Container(
-                    child: Image.asset('asset/images/delete.png'),
-                  )
-                ],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Clear History'),
+                    Container(
+                      child: Image.asset('asset/images/delete.png'),
+                    )
+                  ],
+                ),
               ),
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => LoginScreen())), (route) => false);
-                  },
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.black,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0))),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 15.0, horizontal: 20.0),
-                    child: Text(
-                      'LOGOUT',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ))
+              SizedBox(height: 40.0),
+              Center(
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => LoginScreen())), (route) => false);
+                    },
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.black,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25.0))),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15.0, horizontal: 20.0),
+                      child: Text(
+                        'LOGOUT',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                    )),
+              )
             ],
           ),
         ),
