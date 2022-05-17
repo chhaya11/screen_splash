@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_screen/forget_password.dart';
 import 'package:splash_screen/login_screen.dart';
 import 'package:splash_screen/signup_screen.dart';
 
@@ -15,10 +16,11 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     new Future.delayed(
         const Duration(seconds: 5),
-        () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Signup_Screen()),
-            ));
+        () => Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()),(route)=>false),
+            );
   }
 
   @override

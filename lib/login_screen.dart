@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 15.0),
+            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 25.0),
             child: Form(
               autovalidateMode: AutovalidateMode.onUserInteraction,
               key: _formKey,
@@ -33,42 +33,49 @@ class _LoginScreenState extends State<LoginScreen> {
                     style:
                         TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
                     "Login to your account",
                     style: TextStyle(
                         fontSize: 14.0, fontWeight: FontWeight.normal),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: TextFormField(
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                          labelText: "Email",
-                          hintText: 'Enter your email address'),
-                      validator: (value) {
-                        if (value!.isEmpty ||
-                            !RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                .hasMatch(value)) {
-                          return "Enter Valid email address";
-                        }
-                        return null;
-                      },
-                    ),
+                  SizedBox(
+                    height: 50,
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(10),
-                    child: TextFormField(
-                      validator: (value) {
-                        if (value!.isNotEmpty && value.length > 8) {
-                          return null;
-                        }
-                       return "Enter your Password";
-                      },
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          labelText: 'Password',
-                          hintText: 'Enter your password'),
-                    ),
+                  TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                        contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                        labelText: "Email",
+                        labelStyle: TextStyle(color: Colors.black),
+                        hintText: 'Enter your email address'),
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                              .hasMatch(value)) {
+                        return "Enter Valid email address";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextFormField(
+                    validator: (value) {
+                      if (value!.isNotEmpty && value.length > 8) {
+                        return null;
+                      }
+                      return "Enter your Password";
+                    },
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                        labelText: 'Password',
+                        labelStyle: TextStyle(color: Colors.black),
+                        hintText: 'Enter your password'),
                   ),
                   TextButton(
                     onPressed: () {
@@ -78,22 +85,22 @@ class _LoginScreenState extends State<LoginScreen> {
                               builder: (context) => ForgetPassword()));
                     },
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
                           'Forgot Password?',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 12,
                             color: Colors.black,
                           ),
-                          textAlign: TextAlign.end,
                         ),
                       ],
                     ),
                   ),
+                  SizedBox(height: 30),
                   Container(
-                    height: 50.0,
-                    width: 150.0,
+                    height: 40.0,
+                    width: 200.0,
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(50),
@@ -118,23 +125,31 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 120,
-                  ),
+                  SizedBox(height: 20,),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('Does not have an account?'),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.push(
+                      Text('Does not have an account?', style: TextStyle(
+                        fontSize: 12.0
+                      ),),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Signup_Screen()),
-                            );
-                          },
-                          child: Text('Signup'))
+                                  builder: (context) => Signup_Screen()));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+                          child: Text('Signup',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13.0,
+                                  decoration: TextDecoration.underline)),
+                        ),
+                      )
                     ],
-                    mainAxisAlignment: MainAxisAlignment.center,
                   )
                 ],
               ),

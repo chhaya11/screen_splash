@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: 'splash',
-      routes: {'splash': (context) => Signup_Screen()},
+      routes: {'splash': (context) => SplashScreen()},
     );
   }
 }

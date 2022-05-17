@@ -26,11 +26,12 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                   child: Image.asset("asset/images/login.png"),
                 ),
                 Text(
-                  "CREATE ACCOUNT!",
+                  "CREATE ACCOUNT",
                   style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
                 ),
+                SizedBox(height:10),
                 Text(
-                  "Sign up to get started",
+                  "Sign up to get started!",
                   style:
                       TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
                 ),
@@ -39,7 +40,7 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                   child: TextFormField(
                     validator: (value) {
                       if (value!.isEmpty ||
-                          RegExp(r'^[a-zA-Z]').hasMatch(value)) {
+                          RegExp(r'^[a-zA-Z]$').hasMatch(value)) {
                         return "Enter Your name";
                       } else {
                         return null;
@@ -47,7 +48,10 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                     },
                     keyboardType: TextInputType.name,
                     decoration: InputDecoration(
-                        labelText: "Full Name", hintText: 'Enter your name'),
+                       contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                        labelText: "Full Name", hintText: 'Enter your name' ,
+                        labelStyle: TextStyle(color: Colors.black)
+                        ),
                   ),
                 ),
                 Padding(
@@ -63,7 +67,9 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                     },
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                        labelText: "Email", hintText: 'Enter your Email'),
+                       contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                        labelText: "Email", hintText: 'Enter your Email',
+                        labelStyle: TextStyle(color: Colors.black),),
                   ),
                 ),
                 Padding(
@@ -77,21 +83,28 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                     },
                     obscureText: true,
                     decoration: InputDecoration(
-                        labelText: 'Password', hintText: 'Enter your password'),
+                       contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                        labelText: 'Password', hintText: 'Enter your password',
+                        labelStyle: TextStyle(color: Colors.black),),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(10),
                   child: TextFormField(
                     validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Enter Phone number";
+                      if (value!.isNotEmpty &&
+                          RegExp(r'^(?:[+0]9)?[0-9]{10}$').hasMatch(value)) {
+                        return null;
+                      } else {
+                        return "Enter your Phone number";
                       }
                     },
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
+                       contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                       labelText: 'Phone number',
                       hintText: 'Enter your Phone number',
+                      labelStyle: TextStyle(color: Colors.black)
                     ),
                   ),
                 ),
@@ -115,10 +128,10 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                     )
                   ],
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 50),
                 Container(
-                  height: 50.0,
-                  width: 150.0,
+                  height: 40.0,
+                  width: 180.0,
                   decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(50),
@@ -132,9 +145,12 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                                 builder: (context) => LoginScreen()));
                       }
                     },
-                    style: ElevatedButton.styleFrom(primary: Colors.black),
+                    style: ElevatedButton.styleFrom(primary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25))),
+                    
                     child: Text(
-                      "Sign up",
+                      "SIGN UP",
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -146,15 +162,22 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                 ),
                 Row(
                   children: [
-                    Text('Already have an account?'),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginScreen()));
-                        },
-                        child: Text('login'))
+                    Text('Already have an account?',style: TextStyle(
+                      fontSize: 12.0
+                    ),),
+                    GestureDetector(
+                      onTap: () {Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()),(route)=>false);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5),
+                        child: Text('login', style: TextStyle(
+                          fontSize: 13.0,decoration: TextDecoration.underline
+                        ), ),
+                      ),
+                    )
                   ],
                   mainAxisAlignment: MainAxisAlignment.center,
                 )

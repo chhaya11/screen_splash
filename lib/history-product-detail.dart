@@ -27,10 +27,11 @@ class _HistoryProductDetailState extends State<HistoryProductDetail> {
           SizedBox(height: 15,),
           Text("ID: 46237823929", style: TextStyle(
             fontWeight: FontWeight.w600,
+            fontSize: 16.0
           ),),
 
            SizedBox(height: 10.0,),
-           Text("Product: Paper", style: TextStyle(
+           Text("Product: Pamper", style: TextStyle(
            fontSize: 13.0,color: Colors.grey
           ),),
               SizedBox(height: 25.0,),
@@ -40,7 +41,9 @@ class _HistoryProductDetailState extends State<HistoryProductDetail> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Code Type'),
+              Text('Code Type', style: TextStyle(
+                color: Colors.grey
+              ),),
                Text('QR Code'),
             ],
           ),
@@ -55,7 +58,9 @@ class _HistoryProductDetailState extends State<HistoryProductDetail> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Company Name'),
+              Text('Company Name', style: TextStyle(
+                color: Colors.grey
+              ),),
                Text('Check My Product'),
             ],
           ),
@@ -70,7 +75,9 @@ class _HistoryProductDetailState extends State<HistoryProductDetail> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Price'),
+              Text('Price', style: TextStyle(
+                color: Colors.grey
+              ),),
                Text('\$2.65'),
             ],
           ),
@@ -85,7 +92,9 @@ class _HistoryProductDetailState extends State<HistoryProductDetail> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Manufacuture Date'),
+              Text('Manufacuture Date', style: TextStyle(
+                color: Colors.grey
+              ),),
                Text('05-02-2021'),
             ],
           ),

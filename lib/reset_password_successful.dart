@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splash_screen/home.dart';
 
 class ResetPassSuccess extends StatefulWidget {
   const ResetPassSuccess({Key? key}) : super(key: key);
@@ -26,23 +27,28 @@ class _ResetPassSuccessState extends State<ResetPassSuccess> {
               fontWeight: FontWeight.w600
             ),
             ),
+            SizedBox(height: 5,),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text("You have successfully reset your password" , style: TextStyle(
+              child: Text("You have successfully reset your password." , style: TextStyle(
                 fontSize: 14.0
               ),),
             ),
             SizedBox(
               height: 50.0,
             ),            
-              ElevatedButton(onPressed: (){}, style: ElevatedButton.styleFrom(
+              ElevatedButton(onPressed: (){
+              Navigator.push(context, 
+              MaterialPageRoute(builder: (context) => HomeScreen()));
+              }, 
+              style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
               primary: Colors.black,
               ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical:15.0 ,horizontal: 20.0),
+                  padding: const EdgeInsets.symmetric(vertical:15.0 ,horizontal: 40.0),
                   child: Text("DONE",style: TextStyle(
                     fontWeight: FontWeight.bold
                   ),),

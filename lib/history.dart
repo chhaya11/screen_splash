@@ -105,7 +105,7 @@ class _HistoryState extends State<History> {
                         borderRadius: BorderRadius.circular(8.0),
                         borderSide: BorderSide.none),
                     prefixIcon: Icon(Icons.search ,color: Colors.black),
-                    hintText: "Search here",
+                    hintText: "Search",
                     iconColor: Colors.black),
               ),
             ),

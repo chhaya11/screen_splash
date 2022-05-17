@@ -22,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               child: Image.asset("asset/images/login.png"),
             ),
-            Text("WELCOME TO CHECK MY PRODUCTS",
+            SizedBox(height: 25,),
+            Text("WELCOME TO CHECK \n MY PRODUCT",
                 style: TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,

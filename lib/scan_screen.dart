@@ -194,50 +194,59 @@ class _Scan_ScreenState extends State<Scan_Screen> {
                     SizedBox(
                       height: 30.0,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Company Name",
-                          style: TextStyle(color: Colors.grey, fontSize: 13.0),
-                        ),
-                        Text(
-                          "CheckMyProduct",
-                          style: TextStyle(color: Colors.black, fontSize: 14.0),
-                        )
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Company Name",
+                            style: TextStyle(color: Colors.grey, fontSize: 13.0),
+                          ),
+                          Text(
+                            "CheckMyProduct",
+                            style: TextStyle(color: Colors.black, fontSize: 14.0),
+                          )
+                        ],
+                      ),
                     ),
                     Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Quantity",
-                          style: TextStyle(color: Colors.grey, fontSize: 13.0),
-                        ),
-                        Text(
-                          "6 Pec",
-                          style: TextStyle(color: Colors.black, fontSize: 14.0),
-                        )
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Quantity",
+                            style: TextStyle(color: Colors.grey, fontSize: 13.0),
+                          ),
+                          Text(
+                            "6 Pec",
+                            style: TextStyle(color: Colors.black, fontSize: 14.0),
+                          )
+                        ],
+                      ),
                     ),                
                     Divider(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Price",
-                          style: TextStyle(color: Colors.grey, fontSize: 13.0),
-                        ),
-                        Text(
-                          "\$2.65",
-                          style: TextStyle(color: Colors.black, fontSize: 14.0),
-                        )
-                      ],
-                    )
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Price",
+                            style: TextStyle(color: Colors.grey, fontSize: 13.0),
+                          ),
+                          Text(
+                            "\$2.65",
+                            style: TextStyle(color: Colors.black, fontSize: 14.0),
+                          )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

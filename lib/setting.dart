@@ -188,7 +188,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 40.0),
+              SizedBox(height: 50.0),
               Center(
                 child: ElevatedButton(
                     onPressed: () {
@@ -203,7 +203,7 @@ class _SettingScreenState extends State<SettingScreen> {
                             borderRadius: BorderRadius.circular(25.0))),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 15.0, horizontal: 20.0),
+                          vertical: 15.0, horizontal: 40.0),
                       child: Text(
                         'LOGOUT',
                         style: TextStyle(
