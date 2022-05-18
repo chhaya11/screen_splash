@@ -9,6 +9,7 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  var enableEmail = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,27 +37,40 @@ class _SettingScreenState extends State<SettingScreen> {
               //Email
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+            
                 children: [
-                  Text('Email' ,style: TextStyle(
-                    color: Colors.grey
-                  ),),
-                  SizedBox(width: 60,),
-                  Flexible(
+                  Text(
+                    'Email',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(
+                    width: 60,
+                  ),
+                  Expanded(
+                    
                     child: TextField(
-                      keyboardType: TextInputType.emailAddress,  
+                      enabled: enableEmail,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        contentPadding:EdgeInsets.all(0),
-                        border: InputBorder.none,                       
+                        contentPadding: EdgeInsets.all(0),
+                        border: InputBorder.none,
                         hintText: 'jilian.marocs@gmail.com',
-                        hintStyle: TextStyle(
-                          fontSize: 14.0
-                         ),
-                        suffixIcon: Icon(Icons.edit ,size: 18.0, 
-                        color: Colors.grey),
+                        hintStyle: TextStyle(fontSize: 14.0),
                         suffixIconConstraints: BoxConstraints(),
-                      
                       ),
+                    ),
+                  ),
+                  GestureDetector(
+                  onTap: () {
+                      setState(() {
+                        enableEmail = !enableEmail;
+                      });
+                    },
+                    child: Icon(
+                      Icons.edit,
+                      size: 18.0,
+                      color: Colors.grey,
                     ),
                   ),
                 ],
@@ -66,26 +80,27 @@ class _SettingScreenState extends State<SettingScreen> {
               //Password
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Change Password' ,style: TextStyle(
-                    color: Colors.grey
-                  ),),
-                   SizedBox(width: 30,),
+                  Text(
+                    'Change Password',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
                   Expanded(
                     child: TextField(
                       obscureText: true,
                       decoration: InputDecoration(
-                         contentPadding:EdgeInsets.all(0),
+                        contentPadding: EdgeInsets.all(0),
                         border: InputBorder.none,
-                         hintStyle: TextStyle(
-                          fontSize: 14.0
-                         ),
-                          hintText: 'Enter Your Password',
-                          suffixIcon: Icon(Icons.edit ,size: 18.0,
-                           color: Colors.grey),
-                        suffixIconConstraints: BoxConstraints(),),
-                          
+                        hintStyle: TextStyle(fontSize: 14.0),
+                        hintText: 'Enter Your Password',
+                        suffixIcon:
+                            Icon(Icons.edit, size: 18.0, color: Colors.grey),
+                        suffixIconConstraints: BoxConstraints(),
+                      ),
                     ),
                   ),
                 ],
@@ -99,30 +114,34 @@ class _SettingScreenState extends State<SettingScreen> {
                 style: TextStyle(fontWeight: FontWeight.w600),
                 textAlign: TextAlign.left,
               ),
-                SizedBox(
+              SizedBox(
                 height: 20.0,
               ),
               //Name
               Row(
-                 crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Full Name" ,style: TextStyle(
-                    color: Colors.grey
-                  ),),
-                  SizedBox(width: 80,),
+                  Text(
+                    "Full Name",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(
+                    width: 80,
+                  ),
                   Flexible(
                     child: TextField(
-                      keyboardType: TextInputType.name,                      
+                      enabled: true,
+                      keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(0),
                         border: InputBorder.none,
-                          hintText: 'Julian Macros',
-                          hintStyle: TextStyle(
-                          fontSize: 14.0
-                         ),
-                          suffixIcon: Icon(Icons.edit ,size: 18.0, color: Colors.grey),
-                        suffixIconConstraints: BoxConstraints(),),
+                        hintText: 'Julian Macros',
+                        hintStyle: TextStyle(fontSize: 14.0),
+                        suffixIcon:
+                            Icon(Icons.edit, size: 18.0, color: Colors.grey),
+                        suffixIconConstraints: BoxConstraints(),
+                      ),
                     ),
                   ),
                 ],
@@ -131,10 +150,13 @@ class _SettingScreenState extends State<SettingScreen> {
               //Phone number
               Row(
                 children: [
-                  Text("Phone Number" ,style: TextStyle(
-                    color: Colors.grey
-                  ),),
-                  SizedBox(width: 50,),
+                  Text(
+                    "Phone Number",
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
                   Flexible(
                     child: TextField(
                       keyboardType: TextInputType.phone,
@@ -142,11 +164,11 @@ class _SettingScreenState extends State<SettingScreen> {
                         contentPadding: EdgeInsets.all(0),
                         border: InputBorder.none,
                         hintText: 'Phone Number',
-                        hintStyle: TextStyle(
-                          fontSize: 14.0
-                         ),
-                        suffixIcon: Icon(Icons.edit ,color: Colors.grey ,size: 18.0),
-                      suffixIconConstraints: BoxConstraints(),),
+                        hintStyle: TextStyle(fontSize: 14.0),
+                        suffixIcon:
+                            Icon(Icons.edit, color: Colors.grey, size: 18.0),
+                        suffixIconConstraints: BoxConstraints(),
+                      ),
                     ),
                   ),
                 ],
@@ -195,7 +217,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => LoginScreen())), (route) => false);
+                              builder: ((context) => LoginScreen())),
+                          (route) => false);
                     },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.black,

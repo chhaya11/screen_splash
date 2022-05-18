@@ -139,10 +139,12 @@ class _Signup_ScreenState extends State<Signup_Screen> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_loginKey.currentState?.validate() == true) {
-                        Navigator.push(
+                        Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()));
+                                builder: (context) => LoginScreen()), (route) {
+                                  return false;
+                                });
                       }
                     },
                     style: ElevatedButton.styleFrom(primary: Colors.black,
