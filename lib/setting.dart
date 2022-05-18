@@ -10,6 +10,19 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   var enableEmail = false;
+  var enablePassword = false;
+  var enableFullname = false;
+  var enablePhone = false;
+  AlertDialog? alert;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    showAlertDialog(context);
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +51,6 @@ class _SettingScreenState extends State<SettingScreen> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
-            
                 children: [
                   Text(
                     'Email',
@@ -48,7 +60,6 @@ class _SettingScreenState extends State<SettingScreen> {
                     width: 60,
                   ),
                   Expanded(
-                    
                     child: TextField(
                       enabled: enableEmail,
                       keyboardType: TextInputType.emailAddress,
@@ -62,7 +73,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     ),
                   ),
                   GestureDetector(
-                  onTap: () {
+                    onTap: () {
                       setState(() {
                         enableEmail = !enableEmail;
                       });
@@ -91,16 +102,26 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   Expanded(
                     child: TextField(
+                      enabled: enablePassword,
                       obscureText: true,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(0),
                         border: InputBorder.none,
                         hintStyle: TextStyle(fontSize: 14.0),
                         hintText: 'Enter Your Password',
-                        suffixIcon:
-                            Icon(Icons.edit, size: 18.0, color: Colors.grey),
-                        suffixIconConstraints: BoxConstraints(),
                       ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        enablePassword = !enablePassword;
+                      });
+                    },
+                    child: Icon(
+                      Icons.edit,
+                      size: 18.0,
+                      color: Colors.grey,
                     ),
                   ),
                 ],
@@ -131,17 +152,26 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   Flexible(
                     child: TextField(
-                      enabled: true,
+                      enabled: enableFullname,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(0),
                         border: InputBorder.none,
                         hintText: 'Julian Macros',
                         hintStyle: TextStyle(fontSize: 14.0),
-                        suffixIcon:
-                            Icon(Icons.edit, size: 18.0, color: Colors.grey),
-                        suffixIconConstraints: BoxConstraints(),
                       ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        enableFullname = !enableFullname;
+                      });
+                    },
+                    child: Icon(
+                      Icons.edit,
+                      size: 18.0,
+                      color: Colors.grey,
                     ),
                   ),
                 ],
@@ -159,16 +189,26 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   Flexible(
                     child: TextField(
+                      enabled: enablePhone,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(0),
                         border: InputBorder.none,
                         hintText: 'Phone Number',
                         hintStyle: TextStyle(fontSize: 14.0),
-                        suffixIcon:
-                            Icon(Icons.edit, color: Colors.grey, size: 18.0),
-                        suffixIconConstraints: BoxConstraints(),
                       ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        enablePhone = !enablePhone;
+                      });
+                    },
+                    child: Icon(
+                      Icons.edit,
+                      size: 18.0,
+                      color: Colors.grey,
                     ),
                   ),
                 ],
@@ -214,11 +254,17 @@ class _SettingScreenState extends State<SettingScreen> {
               Center(
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => LoginScreen())),
-                          (route) => false);
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alert!;
+                        },
+                      );
+                      // Navigator.pushAndRemoveUntil(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: ((context) => LoginScreen())),
+                      //     (route) => false);
                     },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.black,
@@ -240,4 +286,29 @@ class _SettingScreenState extends State<SettingScreen> {
       ),
     );
   }
+
+  showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = TextButton(
+    child: Text("Cancel"),
+    onPressed: () {},
+  );
+  Widget continueButton = TextButton(
+    child: Text("Continue"),
+    onPressed: () {},
+  );
+
+  // set up the AlertDialog
+  alert = AlertDialog(
+    title: Text("AlertDialog"),
+    content:
+        Text("Would you like to continue learning how to use Flutter alerts?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
 }
+}
+
+// show alert dialog
